@@ -14,8 +14,8 @@ import javax.inject.Singleton
     modules = [
         AndroidSupportInjectionModule::class,
         AppModule::class,
-        ActivityBindingModule::class,
-        FragmentBindingModule::class,
+        ActivityModule::class,
+        FragmentModule::class,
         RepositoryModule::class,
         UseCaseModule::class
     ]
