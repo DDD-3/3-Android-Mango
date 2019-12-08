@@ -3,7 +3,8 @@ package com.mango.di.module
 import dagger.Module
 
 @Module
-class UseCaseModule {
+class
+UseCaseModule {
 
     //Example
     /*@Provides

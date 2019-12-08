@@ -1,8 +1,11 @@
 package com.mango.di.module
 
+import androidx.lifecycle.ViewModelProvider
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.mango.BuildConfig
+import com.mango.di.ViewModelFactory
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import okhttp3.Interceptor
@@ -11,8 +14,9 @@ import okhttp3.logging.HttpLoggingInterceptor
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
-@Module
-class NetWorkModule {
+@Module(includes = [ViewModelModule::class, ViewModelFactoryModule::class])
+class AppModule {
+
 
     companion object {
         const val NETWORK_TIME_OUT: Long = 15
@@ -67,5 +71,12 @@ class NetWorkModule {
             .build()
             .create(GithubService::class.java)
     }*/
+}
 
+@Module
+abstract class ViewModelFactoryModule {
+    @Binds
+    abstract fun bindViewModelFactory(
+        factory: ViewModelFactory
+    ): ViewModelProvider.Factory
 }

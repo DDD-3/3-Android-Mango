@@ -3,8 +3,8 @@ package com.mango.di.module
 import dagger.Module
 import dagger.Provides
 
-@Module
-class RepositoryModule{
+@Module(includes = [MapperModule::class])
+class RepositoryModule {
 
     //Example
     /*@Provides
@@ -13,6 +13,17 @@ class RepositoryModule{
         githubMapper: GithubMapper
     ): GithubRepository {
         return GithubRepositoryImpl(githubService, githubMapper)
+    }*/
+
+}
+
+@Module
+class MapperModule {
+    //Example
+/*
+    @Provides
+    fun provideGithubMapper(): GithubMapper {
+        return GithubMapper()
     }*/
 
 }
