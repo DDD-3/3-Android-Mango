@@ -21,9 +21,9 @@ import javax.inject.Singleton
     ]
 )
 
-interface GithubComponent : AndroidInjector<MangoApplication> {
+interface MangoComponent : AndroidInjector<MangoApplication> {
     @Component.Factory
     interface Factory {
-        fun create(@BindsInstance applicationContext: Context): GithubComponent
+        fun create(@BindsInstance applicationContext: Context): MangoComponent
     }
 }

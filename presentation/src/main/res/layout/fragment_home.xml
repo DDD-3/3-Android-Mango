@@ -5,13 +5,14 @@
 
         <variable
             name="viewModel"
-            type="com.mango.presentation.base.main.MainViewModel" />
+            type="com.mango.presentation.home.HomeViewModel" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

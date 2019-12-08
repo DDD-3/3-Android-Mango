@@ -3,7 +3,7 @@ package com.mango.di.module
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 import com.mango.di.module.main.MainActivityModule
-import com.mango.presentation.base.main.MainActivity
+import com.mango.presentation.main.MainActivity
 
 @Module
 abstract class ActivityBindingModule {

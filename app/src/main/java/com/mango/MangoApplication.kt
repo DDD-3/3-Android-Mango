@@ -1,23 +1,16 @@
 package com.mango
 
-import android.app.Application
-import com.mango.di.appModules
-import org.koin.android.ext.koin.androidContext
-import org.koin.android.logger.AndroidLogger
-import org.koin.core.context.startKoin
-import org.koin.core.logger.Level
+import com.mango.di.DaggerMangoComponent
+import dagger.android.AndroidInjector
+import dagger.android.DaggerApplication
 
-class MangoApplication : Application() {
+class MangoApplication : DaggerApplication() {
 
     override fun onCreate() {
         super.onCreate()
+    }
 
-        startKoin {
-            androidContext(this@MangoApplication)
-
-            modules(appModules)
-
-            logger(AndroidLogger(Level.DEBUG))
-        }
+    override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
+        return DaggerMangoComponent.factory().create(applicationContext)
     }
 }
