@@ -1,0 +1,7 @@
+apply plugin: 'kotlin-kapt'
+
+dependencies{
+// KOTLIN
+    implementation KotlinLibraries.kotlin
+    implementation KotlinLibraries.ktxLiveData
+}

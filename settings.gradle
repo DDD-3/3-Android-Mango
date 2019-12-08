@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':presentation', ':data', ':domain', ':domain', ':common'
 rootProject.name='Mango'
