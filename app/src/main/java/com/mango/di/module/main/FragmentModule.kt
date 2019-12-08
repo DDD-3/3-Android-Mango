@@ -16,3 +16,19 @@ abstract class MyPageFragmentModule {
     @ViewModelKey(MyPageViewModel::class)
     abstract fun bindViewModel(viewModel: MyPageViewModel): ViewModel
 }
+
+@Module
+abstract class HomeFragmentModule {
+    @Binds
+    @IntoMap
+    @ViewModelKey(HomeViewModel::class)
+    abstract fun bindViewModel(viewModel: HomeViewModel): ViewModel
+}
+
+@Module
+abstract class CategoryFragmentModule {
+    @Binds
+    @IntoMap
+    @ViewModelKey(CategoryViewModel::class)
+    abstract fun bindViewModel(viewModel: CategoryViewModel): ViewModel
+}

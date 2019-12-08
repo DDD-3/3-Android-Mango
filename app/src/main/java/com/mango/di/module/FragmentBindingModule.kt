@@ -2,7 +2,6 @@ package com.mango.di.module
 
 import com.mango.di.module.main.CategoryFragmentModule
 import com.mango.di.module.main.HomeFragmentModule
-import com.mango.di.module.main.MainActivityModule
 import com.mango.di.module.main.MyPageFragmentModule
 import com.mango.presentation.category.CategoryFragment
 import com.mango.presentation.home.HomeFragment

@@ -1,11 +1,11 @@
 package com.mango.presentation.base
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import dagger.android.support.DaggerAppCompatActivity
 
-abstract class BaseActivity<T: ViewDataBinding>(private val layout: Int) : AppCompatActivity(){
+abstract class BaseActivity<T: ViewDataBinding>(private val layout: Int) : DaggerAppCompatActivity(){
 
     lateinit var binding : T
 
