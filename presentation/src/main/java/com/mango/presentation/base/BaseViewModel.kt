@@ -1,4 +1,4 @@
-package com.mango.presentation.base.base
+package com.mango.presentation.base
 
 import androidx.lifecycle.ViewModel
 

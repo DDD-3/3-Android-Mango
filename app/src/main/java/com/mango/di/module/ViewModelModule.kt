@@ -3,6 +3,7 @@ package com.mango.di.module
 import androidx.lifecycle.ViewModel
 import com.mango.di.qualifier.ViewModelKey
 import com.mango.presentation.category.CategoryViewModel
+import com.mango.presentation.detail.DetailViewModel
 import com.mango.presentation.home.HomeViewModel
 import com.mango.presentation.main.MainViewModel
 import com.mango.presentation.mypage.MyPageViewModel
@@ -32,5 +33,10 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(CategoryViewModel::class)
     abstract fun bindCategoryViewModel(viewModel: CategoryViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(DetailViewModel::class)
+    abstract fun bindDetailViewModel(viewModel: DetailViewModel): ViewModel
 
 }

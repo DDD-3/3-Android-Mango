@@ -18,6 +18,7 @@
             android:id="@+id/fl_main"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="@dimen/match_constraint"
+            android:onClick="@{() -> mainViewModel.moveToDetail()}"
             app:layout_constraintBottom_toTopOf="@id/bnv_main"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
