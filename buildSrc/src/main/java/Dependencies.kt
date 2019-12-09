@@ -1,5 +1,5 @@
 object ApplicationId {
-    val id = "kr.lago.aacsample"
+    val id = "com.mango"
 }
 
 object Modules {
