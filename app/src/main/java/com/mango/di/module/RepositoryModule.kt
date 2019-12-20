@@ -1,5 +1,9 @@
 package com.mango.di.module
 
+import com.mango.data.PengpongRepositoryImpl
+import com.mango.data.PengpongService
+import com.mango.data.mapper.PengpongMapper
+import com.mango.domain.PengpongRepository
 import dagger.Module
 import dagger.Provides
 
@@ -7,23 +11,22 @@ import dagger.Provides
 class RepositoryModule {
 
     //Example
-    /*@Provides
+    @Provides
     fun provideGithubRepository(
-        githubService: GithubService,
-        githubMapper: GithubMapper
-    ): GithubRepository {
-        return GithubRepositoryImpl(githubService, githubMapper)
-    }*/
+        pengpongService: PengpongService,
+        pengpongMapper: PengpongMapper
+    ): PengpongRepository {
+        return PengpongRepositoryImpl(pengpongService, pengpongMapper)
+    }
 
 }
 
 @Module
 class MapperModule {
     //Example
-/*
     @Provides
-    fun provideGithubMapper(): GithubMapper {
-        return GithubMapper()
-    }*/
+    fun provideGithubMapper(): PengpongMapper {
+        return PengpongMapper()
+    }
 
 }

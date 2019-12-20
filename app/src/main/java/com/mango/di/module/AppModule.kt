@@ -1,9 +1,12 @@
 package com.mango.di.module
 
+import android.content.Context
 import androidx.lifecycle.ViewModelProvider
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.mango.BuildConfig
+import com.mango.R
+import com.mango.data.PengpongService
 import com.mango.di.ViewModelFactory
 import dagger.Binds
 import dagger.Module
@@ -11,12 +14,13 @@ import dagger.Provides
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 @Module(includes = [ViewModelModule::class, ViewModelFactoryModule::class])
 class AppModule {
-
 
     companion object {
         const val NETWORK_TIME_OUT: Long = 15
@@ -57,20 +61,20 @@ class AppModule {
     }
 
     //Example
-    /*@Singleton
+    @Singleton
     @Provides
     fun provideApiService(
         context: Context,
         okHttpClient: OkHttpClient,
         gson: Gson
-    ): GithubService {
+    ): PengpongService {
         return Retrofit.Builder()
-            .baseUrl(context.getString(R.string.base_url_github_api))
+            .baseUrl(context.getString(R.string.base_url))
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
-            .create(GithubService::class.java)
-    }*/
+            .create(PengpongService::class.java)
+    }
 }
 
 @Module
