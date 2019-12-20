@@ -6,7 +6,7 @@ import retrofit2.http.GET
 interface PengpongService {
 
     @GET("dummy")
-    suspend fun getList() : DataEntityPengpong
+    suspend fun getList(): List<DataEntityPengpong>
 
 
     /*@GET("search/users")

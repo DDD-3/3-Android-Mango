@@ -10,7 +10,7 @@ class PengpongUseCase constructor(
     private val pengpongRepository: PengpongRepository
 ) : BaseUseCase<PengpongUseCase.Params, List<DomainEntityPengpong>> {
 
-    data class Params(val number:Int)
+    data class Params(val number: Int)
 
     override fun invoke(
         scope: CoroutineScope,
