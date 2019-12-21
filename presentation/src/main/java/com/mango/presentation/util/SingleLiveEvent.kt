@@ -11,7 +11,8 @@ class SingleLiveEvent<T> : MutableLiveData<T>() {
     private val mPending = AtomicBoolean(false)
 
     override fun observe(owner: LifecycleOwner, observer: Observer<in T>) {
-        if (hasActiveObservers()) {
+        if (hasActiveObservers()){
+
         }
 
         // Observe the internal MutableLiveData

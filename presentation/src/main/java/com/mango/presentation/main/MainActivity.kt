@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.mango.common.createViewModel
+import com.mango.common.observer
 import com.mango.presentation.R
 import com.mango.presentation.base.BaseActivity
 import com.mango.presentation.databinding.ActivityMainBinding
@@ -31,9 +32,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        viewModel.clickToDetail.observe(this, Observer {
+        observer(viewModel.clickToDetail) {
             startActivity(Intent(this, DetailActivity::class.java))
-        })
+        }
+
     }
 
 }
