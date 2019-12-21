@@ -7,7 +7,6 @@ apply from: '../android_dagger.gradle'
 android {
     defaultConfig {
         applicationId ApplicationId.id
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     dataBinding {

@@ -8,12 +8,4 @@ interface PengpongService {
     @GET("dummy")
     suspend fun getList(): List<DataEntityPengpong>
 
-
-    /*@GET("search/users")
-    suspend fun getSearchUsers(
-        @Query("q") q: String,
-        @Query("page") page: Int,
-        @Query("per_page") perPage: Int
-    ): DataEntityGithub*/
-
 }
