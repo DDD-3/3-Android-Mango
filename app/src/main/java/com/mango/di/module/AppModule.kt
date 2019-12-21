@@ -69,7 +69,7 @@ class AppModule {
         gson: Gson
     ): PengpongService {
         return Retrofit.Builder()
-            .baseUrl(context.getString(R.string.base_url))
+            .baseUrl(context.getString(R.string.api_base_url))
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()

@@ -12,7 +12,7 @@ class RepositoryModule {
 
     //Example
     @Provides
-    fun provideGithubRepository(
+    fun providePengpongRepository(
         pengpongService: PengpongService,
         pengpongMapper: PengpongMapper
     ): PengpongRepository {
@@ -25,7 +25,7 @@ class RepositoryModule {
 class MapperModule {
     //Example
     @Provides
-    fun provideGithubMapper(): PengpongMapper {
+    fun providePengpongMapper(): PengpongMapper {
         return PengpongMapper()
     }
 

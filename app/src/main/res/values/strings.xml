@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Mango</string>
-    <string name="base_url">https://api.pengpong.today/</string>
+    <string name="api_base_url">https://api.pengpong.today/</string>
 
 </resources>
