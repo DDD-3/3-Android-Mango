@@ -8,12 +8,15 @@ import com.mango.BuildConfig
 import com.mango.R
 import com.mango.data.PengpongService
 import com.mango.di.ViewModelFactory
+import com.orhanobut.logger.Logger
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.json.JSONException
+import org.json.JSONObject
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
@@ -41,9 +44,16 @@ class AppModule {
         return OkHttpClient.Builder().apply {
             addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.HEADERS))
             if (BuildConfig.DEBUG) addInterceptor(
-                HttpLoggingInterceptor().setLevel(
-                    HttpLoggingInterceptor.Level.BODY
-                )
+                HttpLoggingInterceptor(
+                    HttpLoggingInterceptor.Logger { message ->
+                        try {
+                            JSONObject(message)
+                            Logger.t("OK_HTTP").json(message)
+                        }catch(e: JSONException){
+                            Logger.t("OK_HTTP").i(message)
+                        }
+                    }
+                ).setLevel(HttpLoggingInterceptor.Level.BODY)
             )
             connectTimeout(NETWORK_TIME_OUT, TimeUnit.SECONDS)
             readTimeout(NETWORK_TIME_OUT, TimeUnit.SECONDS)
