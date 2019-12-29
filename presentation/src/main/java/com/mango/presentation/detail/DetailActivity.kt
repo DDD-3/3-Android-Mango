@@ -1,5 +1,8 @@
 package com.mango.presentation.detail
 
+import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.mango.common.createViewModel
 import com.mango.presentation.R
@@ -9,6 +12,19 @@ import javax.inject.Inject
 
 class DetailActivity : BaseActivity<ActivityDetailBinding>(R.layout.activity_detail) {
 
+    companion object {
+
+        private const val EXTRA_ID = "extra_id"
+
+        fun starterDetailById(context: Context, id: Int) {
+            context.startActivity(
+                Intent(context, DetailActivity::class.java).apply {
+                    putExtra(EXTRA_ID, id)
+                }
+            )
+        }
+    }
+
     @Inject
     lateinit var factory: ViewModelProvider.Factory
 
@@ -16,11 +32,20 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>(R.layout.activity_det
         createViewModel(factory, DetailViewModel::class.java)
     }
 
+    private val detailId by lazy {
+        intent.getIntExtra(EXTRA_ID, 0)
+    }
+
     override fun initView() {
         binding.apply {
             viewModel = this@DetailActivity.vieModel
             lifecycleOwner = this@DetailActivity
         }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        vieModel.bindDetail(detailId)
     }
 
 

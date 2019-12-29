@@ -20,11 +20,11 @@ class MainViewModel @Inject constructor(
 
     }
 
-    private val _clickToDetail = SingleLiveEvent<Any>()
-    val clickToDetail: LiveData<Any>
+    private val _clickToDetail = SingleLiveEvent<MainAction.ActionDetail>()
+    val clickToDetail: LiveData<MainAction.ActionDetail>
         get() = _clickToDetail
 
     fun moveToDetail() {
-        _clickToDetail.call()
+        _clickToDetail.value = MainAction.ActionDetail(1)
     }
 }

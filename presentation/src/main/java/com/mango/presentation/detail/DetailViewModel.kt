@@ -5,4 +5,7 @@ import javax.inject.Inject
 
 class DetailViewModel @Inject constructor() : BaseViewModel() {
 
+    fun bindDetail(id: Int) {
+
+    }
 }

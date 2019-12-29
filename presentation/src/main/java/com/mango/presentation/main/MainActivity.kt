@@ -1,8 +1,6 @@
 package com.mango.presentation.main
 
-import android.content.Intent
 import android.os.Bundle
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.mango.common.createViewModel
 import com.mango.common.observer
@@ -33,7 +31,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         super.onCreate(savedInstanceState)
 
         observer(viewModel.clickToDetail) {
-            startActivity(Intent(this, DetailActivity::class.java))
+            DetailActivity.starterDetailById(this, it.id)
         }
 
     }
