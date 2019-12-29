@@ -1,7 +1,9 @@
 package com.mango.data
 
 import com.mango.data.mapper.PengpongMapper
+import com.mango.data.mapper.toDomainEntityDetail
 import com.mango.domain.PengpongRepository
+import com.mango.domain.entity.DomainEntityDetail
 import com.mango.domain.entity.DomainEntityPengpong
 
 
@@ -16,5 +18,9 @@ class PengpongRepositoryImpl constructor(
         return pengpongMapper.mapFromEntity(
             pengpongService.getList()
         )
+    }
+
+    override suspend fun detail(id: Int): DomainEntityDetail {
+        return pengpongService.detail(id).toDomainEntityDetail()
     }
 }
