@@ -1,26 +1,25 @@
 package com.mango.domain
 
-import com.mango.domain.entity.DomainEntityPengpong
+import com.mango.domain.entity.DomainEntityShop
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 
-class PengpongUseCase constructor(
-    private val pengpongRepository: PengpongRepository
-) : BaseUseCase<PengpongUseCase.Params, List<DomainEntityPengpong>> {
+class ShopUseCase constructor(
+    private val shopRepository: ShopRepository
+) : BaseUseCase<ShopUseCase.Params, List<DomainEntityShop>> {
 
     data class Params(val number: Int)
 
     override fun invoke(
         scope: CoroutineScope,
         params: Params,
-        onSuccess: (List<DomainEntityPengpong>) -> Unit,
+        onSuccess: (List<DomainEntityShop>) -> Unit,
         onFailure: (Throwable) -> Unit
     ) {
         scope.launch(Dispatchers.IO) {
-            pengpongRepository.getList().runCatching(onSuccess).onFailure(onFailure)
+            shopRepository.getList().runCatching(onSuccess).onFailure(onFailure)
 
             /*kotlin.runCatching { pengpongRepository.getList() }.onSuccess {
                 withContext(Dispatchers.Main) {

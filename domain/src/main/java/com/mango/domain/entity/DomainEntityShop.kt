@@ -1,10 +1,10 @@
 package com.mango.domain.entity
 
-data class DomainEntityPengpong(
+data class DomainEntityShop(
     val address: String,
     val description: String,
     val id: Int,
-    val profileImage: Any?,
+    val profileImage: String,
     val tel: String,
     val title: String
 )

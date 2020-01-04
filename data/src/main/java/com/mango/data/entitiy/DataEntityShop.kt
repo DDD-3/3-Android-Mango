@@ -1,10 +1,10 @@
 package com.mango.data.entitiy
 
-data class DataEntityPengpong(
+data class DataEntityShop(
     val address: String,
     val description: String,
     val id: Int,
-    val profileImage: Any,
+    val profileImage: String,
     val tel: String,
     val title: String
 )

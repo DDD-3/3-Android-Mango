@@ -1,8 +1,8 @@
 package com.mango.di.module
 
 import com.mango.domain.DetailUseCase
-import com.mango.domain.PengpongUseCase
-import com.mango.domain.PengpongRepository
+import com.mango.domain.ShopUseCase
+import com.mango.domain.ShopRepository
 import dagger.Module
 import dagger.Provides
 
@@ -12,13 +12,13 @@ UseCaseModule {
 
     //Example
     @Provides
-    fun provideGithubUseCase(githubRepository: PengpongRepository)
-            : PengpongUseCase {
-        return PengpongUseCase(githubRepository)
+    fun provideGithubUseCase(githubRepository: ShopRepository)
+            : ShopUseCase {
+        return ShopUseCase(githubRepository)
     }
 
     @Provides
-    fun provideDetailUseCase(repository: PengpongRepository): DetailUseCase {
+    fun provideDetailUseCase(repository: ShopRepository): DetailUseCase {
         return DetailUseCase(repository)
     }
 

@@ -6,7 +6,7 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.mango.BuildConfig
 import com.mango.R
-import com.mango.data.PengpongService
+import com.mango.data.ShopService
 import com.mango.di.ViewModelFactory
 import com.orhanobut.logger.Logger
 import dagger.Binds
@@ -77,13 +77,13 @@ class AppModule {
         context: Context,
         okHttpClient: OkHttpClient,
         gson: Gson
-    ): PengpongService {
+    ): ShopService {
         return Retrofit.Builder()
             .baseUrl(context.getString(R.string.api_base_url))
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
-            .create(PengpongService::class.java)
+            .create(ShopService::class.java)
     }
 }
 

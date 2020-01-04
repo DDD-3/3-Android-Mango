@@ -1,9 +1,9 @@
 package com.mango.di.module
 
-import com.mango.data.PengpongRepositoryImpl
-import com.mango.data.PengpongService
-import com.mango.data.mapper.PengpongMapper
-import com.mango.domain.PengpongRepository
+import com.mango.data.ShopRepositoryImpl
+import com.mango.data.ShopService
+import com.mango.data.mapper.ShopMapper
+import com.mango.domain.ShopRepository
 import dagger.Module
 import dagger.Provides
 
@@ -12,11 +12,11 @@ class RepositoryModule {
 
     //Example
     @Provides
-    fun providePengpongRepository(
-        pengpongService: PengpongService,
-        pengpongMapper: PengpongMapper
-    ): PengpongRepository {
-        return PengpongRepositoryImpl(pengpongService, pengpongMapper)
+    fun provideShopRepository(
+        shopService: ShopService,
+        shopMapper: ShopMapper
+    ): ShopRepository {
+        return ShopRepositoryImpl(shopService, shopMapper)
     }
 
 }
@@ -25,8 +25,8 @@ class RepositoryModule {
 class MapperModule {
     //Example
     @Provides
-    fun providePengpongMapper(): PengpongMapper {
-        return PengpongMapper()
+    fun provideShopMapper(): ShopMapper {
+        return ShopMapper()
     }
 
 }

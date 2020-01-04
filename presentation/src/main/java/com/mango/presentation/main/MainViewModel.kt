@@ -2,17 +2,17 @@ package com.mango.presentation.main
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.mango.domain.PengpongUseCase
+import com.mango.domain.ShopUseCase
 import com.mango.presentation.base.BaseViewModel
 import com.mango.presentation.util.SingleLiveEvent
 import javax.inject.Inject
 
 class MainViewModel @Inject constructor(
-    pengpongUseCase: PengpongUseCase
+    shopUseCase: ShopUseCase
 ) : BaseViewModel() {
 
     init {
-        pengpongUseCase.invoke(viewModelScope, PengpongUseCase.Params(1), {
+        shopUseCase.invoke(viewModelScope, ShopUseCase.Params(1), {
 
         }, {
 

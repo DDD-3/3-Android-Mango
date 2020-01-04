@@ -6,7 +6,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class DetailUseCase constructor(
-    private val repository: PengpongRepository
+    private val repository: ShopRepository
 ) : BaseUseCase<DetailUseCase.Params, DomainEntityDetail> {
 
     data class Params(val id: Int)
