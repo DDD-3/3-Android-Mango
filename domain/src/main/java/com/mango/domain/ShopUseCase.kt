@@ -8,26 +8,18 @@ import kotlinx.coroutines.launch
 
 class ShopUseCase constructor(
     private val shopRepository: ShopRepository
-) : BaseUseCase<ShopUseCase.Params, List<DomainEntityShop>> {
+) : BaseUseCase {
 
     data class Params(val number: Int)
 
-    override fun invoke(
+    fun execute(
         scope: CoroutineScope,
-        params: Params,
         onSuccess: (List<DomainEntityShop>) -> Unit,
         onFailure: (Throwable) -> Unit
     ) {
-        scope.launch(Dispatchers.IO) {
+        scope.launch {
             shopRepository.getList().runCatching(onSuccess).onFailure(onFailure)
-
-            /*kotlin.runCatching { pengpongRepository.getList() }.onSuccess {
-                withContext(Dispatchers.Main) {
-
-                }
-            }.onFailure {
-
-            }*/
         }
     }
+
 }
