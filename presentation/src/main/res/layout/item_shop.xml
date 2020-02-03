@@ -3,10 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.mango.presentation.home.HomeViewModel" />
+
+        <variable
+            name="shop"
+            type="com.mango.domain.entity.DomainEntityShop" />
+    </data>
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="?selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="@{() -> viewModel.moveToDetail(shop.id)}">
 
 
         <androidx.constraintlayout.widget.Guideline
@@ -18,9 +33,11 @@
 
         <ImageView
             android:id="@+id/iv_item_image"
+            bind_image="@{shop.profileImage}"
             android:layout_width="44dp"
-            android:layout_height="44dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
+            app:layout_constraintDimensionRatio="h, 1:1"
             app:layout_constraintStart_toStartOf="@id/gl_item_start"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -30,6 +47,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="22dp"
+            android:text="@{shop.title}"
+            android:textColor="@color/black"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@id/iv_item_image"
             app:layout_constraintTop_toTopOf="parent"
@@ -41,6 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginBottom="22dp"
+            android:text="@{shop.address}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/iv_item_image"
             app:layout_constraintTop_toBottomOf="@id/tv_item_name"

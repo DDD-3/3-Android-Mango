@@ -7,11 +7,11 @@ import kotlinx.coroutines.launch
 
 class DetailUseCase constructor(
     private val repository: ShopRepository
-) : BaseUseCase<DetailUseCase.Params, DomainEntityDetail> {
+) : BaseUseCase {
 
     data class Params(val id: Int)
 
-    override fun invoke(
+    fun invoke(
         scope: CoroutineScope,
         params: Params,
         onSuccess: (DomainEntityDetail) -> Unit,
