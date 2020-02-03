@@ -21,7 +21,7 @@ class MyPageFragment : BaseFragment<FragmentMypageBinding>(R.layout.fragment_myp
     override fun initView() {
         binding.apply {
             viewModel = this@MyPageFragment.viewModel
-            lifecycleOwner = this@MyPageFragment
+            lifecycleOwner = viewLifecycleOwner
         }
     }
 

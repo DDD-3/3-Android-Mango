@@ -23,16 +23,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     override fun initView() {
         binding.apply {
             viewModel = this@HomeFragment.viewModel
-            lifecycleOwner = this@HomeFragment
+            lifecycleOwner = viewLifecycleOwner
         }
 
         observer(viewModel.error) {
-            context!!.showToast("일시적으로 네트워크에 문제가 생겼습니다.\n 잠시 후 다시 시도해주세요.")
+            requireContext().showToast("일시적으로 네트워크에 문제가 생겼습니다.\n 잠시 후 다시 시도해주세요.")
             Logger.e(it.message!!)
         }
 
         observer(viewModel.clickToDetail) {
-            DetailActivity.starterDetailById(this.context!!, it.id)
+            DetailActivity.starterDetailById(requireContext(), it.id)
         }
     }
 

@@ -21,7 +21,7 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(R.layout.fragment
     override fun initView() {
         binding.apply {
             viewModel = this@CategoryFragment.viewModel
-            lifecycleOwner = this@CategoryFragment
+            lifecycleOwner = viewLifecycleOwner
         }
     }
 

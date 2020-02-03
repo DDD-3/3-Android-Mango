@@ -7,8 +7,7 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class
-UseCaseModule {
+class UseCaseModule {
 
     //Example
     @Provides
