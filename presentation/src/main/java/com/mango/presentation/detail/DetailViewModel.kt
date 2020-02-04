@@ -25,6 +25,19 @@ class DetailViewModel @Inject constructor(
     val clickToBack: LiveData<Any>
         get() = _clickToBack
 
+    private val _clickToShare = SingleLiveEvent<Any>()
+    val clickToShare: LiveData<Any>
+        get() = _clickToShare
+
+    private val _detailImage = MutableLiveData<String>()
+    val detailImage: LiveData<String>
+        get() = _detailImage
+
+    init {
+        _detailImage.value =
+            "https://cdn.crowdpic.net/detail-thumb/thumb_d_A175A8EE60E76F315D7C02F85C3B5D01.jpg"
+    }
+
     fun bindDetail(id: Int) {
         useCase.invoke(viewModelScope, DetailUseCase.Params(id), {
             _detail.postValue(it)
@@ -35,5 +48,9 @@ class DetailViewModel @Inject constructor(
 
     fun clickToBack() {
         _clickToBack.call()
+    }
+
+    fun clickToShare() {
+        _clickToShare.call()
     }
 }

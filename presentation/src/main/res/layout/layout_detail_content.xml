@@ -11,42 +11,71 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/detail_bottom_sheet_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_radius_bottomsheet"
+        app:behavior_hideable="false"
+        app:behavior_peekHeight="416dp"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guide_start"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_begin="24dp" />
+            app:layout_constraintGuide_begin="27dp" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guide_end"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_end="24dp" />
+            app:layout_constraintGuide_end="21dp" />
 
         <TextView
             android:id="@+id/detail_title"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="21dp"
             android:text="@{viewModel.detail.title}"
             android:textColor="@color/black"
+            android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@id/guide_end"
+            app:layout_constraintEnd_toStartOf="@id/detail_heart"
             app:layout_constraintStart_toEndOf="@id/guide_start"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="진짜 파스타" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/detail_heart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="11dp"
+            android:background="@null"
+            app:layout_constraintEnd_toStartOf="@id/detail_like"
+            app:layout_constraintTop_toTopOf="@id/detail_like"
+            app:srcCompat="@drawable/ic_circle_heart" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/detail_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="21dp"
+            android:background="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_circle_like" />
 
         <TextView
             android:id="@+id/detail_tel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="12dp"
             android:text="@{viewModel.detail.tel}"
+            android:textColor="#99000000"
+            android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@id/guide_start"
             app:layout_constraintTop_toBottomOf="@id/detail_title"
             tools:text="02-2555-5555" />
@@ -55,34 +84,95 @@
             android:id="@+id/detail_address"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="8dp"
             android:text="@{viewModel.detail.address}"
+            android:textColor="#99000000"
+            android:textSize="16sp"
             app:layout_constraintEnd_toStartOf="@id/guide_end"
             app:layout_constraintStart_toEndOf="@id/guide_start"
             app:layout_constraintTop_toBottomOf="@id/detail_tel"
             tools:text="서울시 마포구 와우산로 112" />
 
-        <TextView
-            android:id="@+id/guide_description"
+        <View
+            android:id="@+id/detail_tag_list"
             android:layout_width="@dimen/match_constraint"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="@{viewModel.detail.description}"
-            app:layout_constraintEnd_toStartOf="@id/guide_end"
-            app:layout_constraintStart_toEndOf="@id/guide_start"
-            app:layout_constraintTop_toBottomOf="@id/detail_address"
-            tools:text="결식 아동에게 무료로 음식을 제공 :)" />
+            android:layout_height="24dp"
+            android:layout_marginTop="18dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/detail_address" />
+
+        <View
+            android:id="@+id/detail_divider"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="1dp"
+            android:background="#19000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/detail_tag_list" />
 
         <TextView
-            android:textColor="@color/black"
-            android:id="@+id/detail_news_label"
+            android:id="@+id/detail_description_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="관련소식"
+            android:layout_marginTop="17dp"
+            android:text="소개"
+            android:textColor="@color/black"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@id/guide_start"
-            app:layout_constraintTop_toBottomOf="@id/guide_description" />
+            app:layout_constraintTop_toBottomOf="@id/detail_divider" />
+
+        <TextView
+            android:id="@+id/detail_description"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@{viewModel.detail.description}"
+            android:textColor="#cc000000"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@id/guide_end"
+            app:layout_constraintStart_toEndOf="@id/guide_start"
+            app:layout_constraintTop_toBottomOf="@id/detail_description_label"
+            tools:text="결식아동 카드소지자에게  차감없이 무상으로\n파스타를 제공합니다." />
+
+        <TextView
+            android:id="@+id/detail_time_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="영업시간"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/guide_start"
+            app:layout_constraintTop_toBottomOf="@id/detail_description" />
+
+        <TextView
+            android:id="@+id/detail_time"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="#cc000000"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@id/guide_end"
+            app:layout_constraintStart_toEndOf="@id/guide_start"
+            app:layout_constraintTop_toBottomOf="@id/detail_time_label"
+            tools:text="결식아동 카드소지자에게  차감없이 무상으로\n파스타를 제공합니다." />
+
+        <TextView
+            android:id="@+id/detail_map_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="지도"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/guide_start"
+            app:layout_constraintTop_toBottomOf="@id/detail_time" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

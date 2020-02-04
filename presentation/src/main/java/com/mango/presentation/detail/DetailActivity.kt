@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.mango.common.createViewModel
 import com.mango.presentation.R
 import com.mango.presentation.base.BaseActivity
@@ -43,6 +44,8 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>(R.layout.activity_det
             viewModel = this@DetailActivity.viewModel
             lifecycleOwner = this@DetailActivity
         }
+
+        BottomSheetBehavior.from(binding.layoutDetailContent.detailBottomSheetContainer)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
