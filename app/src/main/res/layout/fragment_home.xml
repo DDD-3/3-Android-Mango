@@ -75,11 +75,10 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_home"
-            bind_home_viewModel="@{viewModel}"
-            bind_itmes="@{viewModel.shop}"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="@dimen/match_constraint"
             android:layout_marginTop="20dp"
+            app:bind_home_items="@{viewModel.shop}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

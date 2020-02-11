@@ -14,7 +14,6 @@
             type="com.mango.model.Market" />
     </data>
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,7 +22,6 @@
         android:focusable="true"
         android:onClick="@{() -> viewModel.moveToDetail(item.id)}">
 
-
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/gl_item_start"
             android:layout_width="wrap_content"
@@ -31,7 +29,7 @@
             android:orientation="vertical"
             app:layout_constraintGuide_percent=".061" />
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv_item_image"
             android:layout_width="44dp"
             android:layout_height="wrap_content"

@@ -1,14 +1,17 @@
 package com.mango.ui.home
 
+import android.os.Bundle
+import android.view.View
+import android.widget.LinearLayout
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.mango.common.createViewModel
-import com.mango.common.observer
-import com.mango.common.showToast
+import androidx.recyclerview.widget.DividerItemDecoration
 import com.mango.R
 import com.mango.base.BaseFragment
+import com.mango.common.createViewModel
+import com.mango.common.showToast
 import com.mango.databinding.FragmentHomeBinding
 import com.mango.ui.detail.DetailActivity
-import com.orhanobut.logger.Logger
 import javax.inject.Inject
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
@@ -26,14 +29,21 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             lifecycleOwner = viewLifecycleOwner
         }
 
-        observer(viewModel.error) {
-            requireContext().showToast("일시적으로 네트워크에 문제가 생겼습니다.\n 잠시 후 다시 시도해주세요.")
-            Logger.e(it.message!!)
+        binding.rvHome.apply {
+            addItemDecoration(DividerItemDecoration(context, LinearLayout.VERTICAL))
+            adapter = HomeAdapter(this@HomeFragment.viewModel, this@HomeFragment)
         }
+    }
 
-        observer(viewModel.clickToDetail) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel.error.observe(viewLifecycleOwner, Observer {
+            requireContext().showToast("일시적으로 네트워크에 문제가 생겼습니다.\n 잠시 후 다시 시도해주세요.")
+        })
+
+        viewModel.clickToDetail.observe(viewLifecycleOwner, Observer {
             DetailActivity.starterDetailById(requireContext(), it.id)
-        }
+        })
     }
 
 }
