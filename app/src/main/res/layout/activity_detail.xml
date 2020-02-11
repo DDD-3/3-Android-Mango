@@ -17,12 +17,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/detail_background"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/detail_recycler_view"
                 android:layout_width="@dimen/match_constraint"
                 android:layout_height="360dp"
-                android:scaleType="centerCrop"
-                app:bind_image="@{viewModel.detailImage}"
+                android:overScrollMode="never"
+                app:bind_detail_image="@{viewModel.detail.thumbs}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

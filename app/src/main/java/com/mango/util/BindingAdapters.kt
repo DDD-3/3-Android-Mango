@@ -6,9 +6,11 @@ import com.bumptech.glide.Glide
 
 @BindingAdapter(value = ["bind_image"])
 fun ImageView.setImage(url: String?) {
-
-    Glide.with(this)
-        .load(url)
-        .into(this)
+    url?.let {
+        println(it)
+        Glide.with(this.context)
+            .load(it)
+            .into(this)
+    }
 
 }

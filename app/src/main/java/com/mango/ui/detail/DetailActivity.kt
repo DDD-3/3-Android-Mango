@@ -3,8 +3,13 @@ package com.mango.ui.detail
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import androidx.databinding.BindingAdapter
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearSnapHelper
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.SnapHelper
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.mango.common.createViewModel
 import com.mango.R
@@ -45,6 +50,15 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>(R.layout.activity_det
             lifecycleOwner = this@DetailActivity
         }
 
+        binding.detailRecyclerView.apply {
+            layoutManager =
+                LinearLayoutManager(this@DetailActivity, LinearLayoutManager.HORIZONTAL, false)
+            adapter = DetailImageAdapter(this@DetailActivity)
+            setHasFixedSize(true)
+        }
+
+        LinearSnapHelper().attachToRecyclerView(binding.detailRecyclerView)
+
         BottomSheetBehavior.from(binding.layoutDetailContent.detailBottomSheetContainer)
     }
 
@@ -59,5 +73,12 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>(R.layout.activity_det
         viewModel.clickToBack.observe(this, Observer {
             finish()
         })
+    }
+}
+
+@BindingAdapter("bind_detail_image")
+fun RecyclerView.bindDetailImage(items: List<String>?) {
+    items?.let {
+        (adapter as DetailImageAdapter).submitList(it)
     }
 }

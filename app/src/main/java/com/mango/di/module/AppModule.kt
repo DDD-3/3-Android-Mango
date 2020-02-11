@@ -42,18 +42,8 @@ class AppModule {
     @Singleton
     fun createClient(interceptor: Interceptor): OkHttpClient {
         return OkHttpClient.Builder().apply {
-            addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.HEADERS))
             if (BuildConfig.DEBUG) addInterceptor(
-                HttpLoggingInterceptor(
-                    HttpLoggingInterceptor.Logger { message ->
-                        try {
-                            JSONObject(message)
-                            Logger.t("OK_HTTP").json(message)
-                        }catch(e: JSONException){
-                            Logger.t("OK_HTTP").i(message)
-                        }
-                    }
-                ).setLevel(HttpLoggingInterceptor.Level.BODY)
+                HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
             )
             connectTimeout(NETWORK_TIME_OUT, TimeUnit.SECONDS)
             readTimeout(NETWORK_TIME_OUT, TimeUnit.SECONDS)

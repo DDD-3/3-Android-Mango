@@ -31,15 +31,6 @@ class DetailViewModel @Inject constructor(
     val clickToShare: LiveData<Any>
         get() = _clickToShare
 
-    private val _detailImage = MutableLiveData<String>()
-    val detailImage: LiveData<String>
-        get() = _detailImage
-
-    init {
-        _detailImage.value =
-            "https://cdn.crowdpic.net/detail-thumb/thumb_d_A175A8EE60E76F315D7C02F85C3B5D01.jpg"
-    }
-
     fun bindDetail(id: Int) {
         viewModelScope.launch(Dispatchers.IO) {
             val item = repository.detail(id)
