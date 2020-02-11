@@ -93,19 +93,21 @@
             app:layout_constraintTop_toBottomOf="@id/detail_tel"
             tools:text="서울시 마포구 와우산로 112" />
 
-        <View
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/detail_tag_list"
             android:layout_width="@dimen/match_constraint"
-            android:layout_height="24dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:bind_detail_tag="@{viewModel.detail.tags}"
+            app:layout_constraintEnd_toStartOf="@id/guide_end"
+            app:layout_constraintStart_toEndOf="@id/guide_start"
             app:layout_constraintTop_toBottomOf="@id/detail_address" />
 
         <View
             android:id="@+id/detail_divider"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="1dp"
+            android:layout_marginTop="27dp"
             android:background="#19000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -153,9 +155,9 @@
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:text="@{viewModel.detail.salesTime}"
             android:textColor="#cc000000"
             android:textSize="16sp"
-            android:text="@{viewModel.detail.salesTime}"
             app:layout_constraintEnd_toStartOf="@id/guide_end"
             app:layout_constraintStart_toEndOf="@id/guide_start"
             app:layout_constraintTop_toBottomOf="@id/detail_time_label"

@@ -15,6 +15,8 @@ import com.mango.common.createViewModel
 import com.mango.R
 import com.mango.base.BaseActivity
 import com.mango.databinding.ActivityDetailBinding
+import com.mango.model.Tag
+import com.mango.util.MarginItemDecoration
 import com.mango.util.toast
 import javax.inject.Inject
 
@@ -57,6 +59,13 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>(R.layout.activity_det
             setHasFixedSize(true)
         }
 
+        binding.layoutDetailContent.detailTagList.apply {
+            layoutManager =
+                LinearLayoutManager(this@DetailActivity, LinearLayoutManager.HORIZONTAL, false)
+            adapter = DetailTagAdapter(this@DetailActivity)
+            addItemDecoration(MarginItemDecoration(this@DetailActivity))
+        }
+
         LinearSnapHelper().attachToRecyclerView(binding.detailRecyclerView)
 
         BottomSheetBehavior.from(binding.layoutDetailContent.detailBottomSheetContainer)
@@ -80,5 +89,12 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>(R.layout.activity_det
 fun RecyclerView.bindDetailImage(items: List<String>?) {
     items?.let {
         (adapter as DetailImageAdapter).submitList(it)
+    }
+}
+
+@BindingAdapter("bind_detail_tag")
+fun RecyclerView.bindDetailTags(items: List<Tag>?) {
+    items?.let {
+        (adapter as DetailTagAdapter).submitList(it)
     }
 }
