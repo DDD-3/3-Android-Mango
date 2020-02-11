@@ -2,11 +2,11 @@ package com.mango.di.module
 
 import androidx.lifecycle.ViewModel
 import com.mango.di.qualifier.ViewModelKey
-import com.mango.presentation.category.CategoryViewModel
-import com.mango.presentation.detail.DetailViewModel
-import com.mango.presentation.home.HomeViewModel
-import com.mango.presentation.main.MainViewModel
-import com.mango.presentation.mypage.MyPageViewModel
+import com.mango.ui.category.CategoryViewModel
+import com.mango.ui.detail.DetailViewModel
+import com.mango.ui.home.HomeViewModel
+import com.mango.ui.main.MainViewModel
+import com.mango.ui.mypage.MyPageViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Mango</string>
     <string name="api_base_url">https://api.pengpong.today/</string>
+    <string name="search_result">검색결과</string>
+    <string name="search_count">총 %d건의 검색결과가 있습니다.</string>
 
 </resources>

@@ -1,7 +1,7 @@
 package com.mango.di.module
 
-import com.mango.presentation.detail.DetailActivity
-import com.mango.presentation.main.MainActivity
+import com.mango.ui.detail.DetailActivity
+import com.mango.ui.main.MainActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
