@@ -4,4 +4,5 @@ dependencies{
 // KOTLIN
     implementation KotlinLibraries.kotlin
     implementation KotlinLibraries.ktxLiveData
+    implementation KotlinLibraries.ktLifeCycler
 }

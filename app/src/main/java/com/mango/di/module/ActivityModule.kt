@@ -1,5 +1,6 @@
 package com.mango.di.module
 
+import com.mango.ui.SplashActivity
 import com.mango.ui.detail.DetailActivity
 import com.mango.ui.main.MainActivity
 import dagger.Module
@@ -13,5 +14,8 @@ abstract class ActivityModule {
 
     @ContributesAndroidInjector
     abstract fun bindDetailActivity(): DetailActivity
+
+    @ContributesAndroidInjector
+    abstract fun bindSplashActivity(): SplashActivity
 
 }
