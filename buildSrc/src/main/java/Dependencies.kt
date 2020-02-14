@@ -55,6 +55,7 @@ object Libraries {
 object KotlinLibraries {
     const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
     const val ktxLiveData = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.ktx}"
+    const val ktLifeCycler = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.ktx}"
 }
 
 object AndroidLibraries {
@@ -70,7 +71,7 @@ object AndroidLibraries {
     const val recyclerView = "androidx.recyclerview:recyclerview:${Versions.recyclerview}"
 }
 
-object UtilLibraries{
+object UtilLibraries {
     const val logger = "com.orhanobut:logger:${Versions.logger}"
 
 
