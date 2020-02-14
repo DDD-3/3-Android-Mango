@@ -13,13 +13,13 @@ object Releases {
 
 object Versions {
     const val kotlin = "1.3.61"
-    const val gradle = "3.4.2"
-    const val compileSdk = 28
+    const val gradle = "3.5.3"
+    const val compileSdk = 29
     const val minSdk = 23
-    const val targetSdk = 28
+    const val targetSdk = 29
     const val appCompat = "1.0.2"
     const val coreKtx = "1.0.2"
-    const val materialDesign = "1.1.0-alpha06"
+    const val materialDesign = "1.1.0"
     const val constraintLayout = "1.1.3"
     const val retrofit = "2.6.0"
     const val retrofitGson = "2.6.0"
