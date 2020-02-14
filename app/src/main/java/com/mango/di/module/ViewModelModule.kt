@@ -6,6 +6,7 @@ import com.mango.ui.category.CategoryViewModel
 import com.mango.ui.detail.DetailViewModel
 import com.mango.ui.home.HomeViewModel
 import com.mango.ui.main.MainViewModel
+import com.mango.ui.message.MessageViewModel
 import com.mango.ui.mypage.MyPageViewModel
 import dagger.Binds
 import dagger.Module
@@ -38,5 +39,10 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(DetailViewModel::class)
     abstract fun bindDetailViewModel(viewModel: DetailViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(MessageViewModel::class)
+    abstract fun bindMessageViewModel(viewModel: MessageViewModel): ViewModel
 
 }

@@ -8,6 +8,7 @@ import com.mango.base.BaseActivity
 import com.mango.ui.category.CategoryFragment
 import com.mango.databinding.ActivityMainBinding
 import com.mango.ui.home.HomeFragment
+import com.mango.ui.message.MessageFragment
 import com.mango.ui.mypage.MyPageFragment
 import com.mango.util.consume
 import com.mango.util.inTransaction
@@ -34,6 +35,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
                 R.id.home -> consume { replaceFragment(HomeFragment()) }
                 R.id.category -> consume { replaceFragment(CategoryFragment()) }
                 R.id.my_page -> consume { replaceFragment(MyPageFragment()) }
+                R.id.message -> consume { replaceFragment(MessageFragment()) }
                 else -> throw IllegalStateException("Invalid Id")
             }
         }
