@@ -13,4 +13,10 @@
         </shape>
     </item>
 
+    <item
+        android:width="14dp"
+        android:height="14dp"
+        android:drawable="@drawable/ic_favorite_white_24dp"
+        android:gravity="center" />
+
 </layer-list>
